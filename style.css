@@ -811,13 +811,230 @@ img {
     background: var(--white);
 }
 
-.about-responsive-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
+.about-content-centered {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
+.about-content-centered .section-badge {
+    margin-bottom: 1rem;
+}
+
+.about-content-centered .section-title {
+    margin-bottom: 3rem;
+}
+
+/* ======================
+   VISION & MISSION FLIP CARDS
+   ====================== */
+
+.vm-flip-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.vm-flip-card {
+    perspective: 1200px;
+    height: 320px;
+    cursor: pointer;
+}
+
+.vm-flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.vm-flip-card:hover .vm-flip-inner {
+    transform: rotateY(180deg);
+}
+
+/* Touch-tap support for mobile */
+.vm-flip-card.touched .vm-flip-inner {
+    transform: rotateY(180deg);
+}
+
+.vm-flip-front,
+.vm-flip-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+/* Vision – Front */
+.vm-vision-front {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 60%, #2563eb 100%);
+    color: var(--white);
+}
+
+/* Mission – Front */
+.vm-mission-front {
+    background: linear-gradient(135deg, #b45309 0%, #d97706 60%, #f59e0b 100%);
+    color: var(--white);
+}
+
+/* Shared FRONT styles */
+.vm-flip-front .vm-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.25rem;
+    opacity: 0.95;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+}
+
+.vm-flip-front h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.5px;
+}
+
+.vm-tagline {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.vm-flip-hint {
+    margin-top: auto;
+    font-size: 0.78rem;
+    opacity: 0.65;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Vision – Back */
+.vm-vision-back {
+    background: var(--white);
+    color: var(--slate-800);
+    transform: rotateY(180deg);
+    border: 2px solid rgba(30, 64, 175, 0.12);
+}
+
+/* Mission – Back */
+.vm-mission-back {
+    background: var(--white);
+    color: var(--slate-800);
+    transform: rotateY(180deg);
+    border: 2px solid rgba(245, 158, 11, 0.2);
+}
+
+/* Shared BACK styles */
+.vm-flip-back .vm-icon-back {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.vm-vision-back .vm-icon-back {
+    color: var(--primary-blue);
+}
+
+.vm-mission-back .vm-icon-back {
+    color: var(--accent-gold);
+}
+
+.vm-flip-back h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--slate-900);
+}
+
+.vm-vision-back h3 {
+    color: var(--primary-blue);
+}
+
+.vm-mission-back h3 {
+    color: var(--dark-gold);
+}
+
+.vm-flip-back p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--slate-700);
+}
+
+/* Responsive: stack on tablet/mobile */
+@media (max-width: 768px) {
+    .vm-flip-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .vm-flip-card {
+        height: auto;
+        min-height: 280px;
+    }
+
+    .vm-flip-front,
+    .vm-flip-back {
+        position: relative;
+        height: auto;
+        min-height: 280px;
+    }
+
+    /* On mobile, disable 3D flip – show both cards flat */
+    .vm-flip-inner {
+        transform: none !important;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transform-style: flat;
+    }
+
+    .vm-flip-back {
+        transform: none;
+        -webkit-backface-visibility: visible;
+        backface-visibility: visible;
+    }
+
+    .vm-flip-front {
+        -webkit-backface-visibility: visible;
+        backface-visibility: visible;
+    }
+
+    .vm-flip-hint {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 769px) {
+    .vm-flip-grid {
+        gap: 1.5rem;
+    }
+
+    .vm-flip-card {
+        height: 300px;
+    }
+
+    .vm-flip-front, .vm-flip-back {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Keep old section-badge, section-title, img-wrapper, stat-card styles for other sections */
 .img-wrapper {
     position: relative;
 }
@@ -885,95 +1102,6 @@ img {
 .text-left.section-title::after {
     left: 0;
     transform: none;
-}
-
-.hod-profile-card {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    background: var(--slate-50);
-    border-radius: 16px;
-    margin-bottom: 1.5rem;
-    border-left: 5px solid var(--accent-gold);
-}
-
-.hod-avatar {
-    width: 60px;
-    height: 60px;
-    background: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: var(--primary-blue);
-    box-shadow: var(--shadow-sm);
-}
-
-.hod-details strong {
-    display: block;
-    font-size: 1.2rem;
-}
-
-.hod-details span {
-    font-size: 0.9rem;
-    color: var(--slate-500);
-}
-
-.strategy-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-
-.strategy-item h3 {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--primary-blue);
-}
-
-.strategy-item p {
-    font-size: 0.95rem;
-    color: var(--slate-600);
-}
-
-.strategy-item ul {
-    font-size: 0.95rem;
-    color: var(--slate-600);
-}
-
-.strategy-item li {
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.strategy-item li i {
-    color: var(--accent-gold);
-    font-size: 0.8rem;
-}
-
-@media (max-width: 991px) {
-    .about-responsive-grid {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-    }
-
-    .about-visual {
-        max-width: 500px;
-        margin: 0 auto;
-    }
-
-    .stat-card {
-        padding: 1.5rem;
-        bottom: -20px;
-        right: -20px;
-    }
 }
 
 /* 

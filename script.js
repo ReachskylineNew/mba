@@ -79,6 +79,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Tap-to-flip for Vision & Mission cards (tablet/touch devices)
+    document.querySelectorAll('.vm-flip-card').forEach(card => {
+        card.addEventListener('click', () => {
+            // Only apply on smaller screens where hover doesn't work
+            if (window.innerWidth <= 991) {
+                card.classList.toggle('touched');
+            }
+        });
+    });
+
     // Smooth scroll for anchor links (if browser doesn't support scroll-behavior: smooth natively)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
