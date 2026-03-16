@@ -82,7 +82,8 @@
                         class="whatsapp-header-btn" title="Chat with us on WhatsApp">
                         <i class="fa-brands fa-whatsapp"></i>
                     </a>
-                    <a href="#apply" class="btn btn-primary btn-apply-header">Apply Now</a>
+                    <a href="https://admissions.kanchiuniv.ac.in/" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-primary btn-apply-header">Apply Now</a>
                 </div>
             </div>
         </div>
@@ -666,129 +667,16 @@
         <div class="container overflow-visible">
             <div class="apply-grid">
                 <!-- Left: Application Form -->
-                <div class="apply-form-container">
-                    <div class="apply-header">
-                        <h2 class="form-title">Begin Your Management Journey</h2>
-                        <p class="form-subtitle">Apply for the Faculty of Management Studies and
-                            our admissions team will contact you within 24 hours</p>
+                <div class="apply-form-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 2rem;">
+                    <div class="apply-header" style="margin-bottom: 2rem;">
+                        <h2 class="form-title">Ready to Start Your Future?</h2>
+                        <p class="form-subtitle">Click the button below to access our official admissions portal and begin your application process today.</p>
                     </div>
-
-                    <form id="admissionForm">
-                        <!-- Progress Indicator -->
-                        <div class="form-progress-indicator">
-                            <div class="progress-bar-fill" id="progressBar" style="width: 0%;"></div>
-                            <div class="step-node active" data-step="1">1</div>
-                            <div class="step-node" data-step="2">2</div>
-                            <div class="step-node" data-step="3">3</div>
-                        </div>
-
-                        <!-- Step 1: Personal Details -->
-                        <div class="form-step active" data-step="1">
-                            <div class="form-section">
-                                <h3 class="form-section-header"><i class="fa-solid fa-user"></i> Personal Details</h3>
-                                <div class="form-row">
-                                    <div class="form-group floating-label-group">
-                                        <div class="input-with-icon">
-                                            <input type="text" id="fullName" name="from_name" required placeholder=" "
-                                                autocomplete="name">
-                                            <i class="fa-solid fa-user-pen field-icon"></i>
-                                            <label for="fullName">Full Name</label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group floating-label-group">
-                                        <div class="input-with-icon">
-                                            <input type="email" id="email" name="reply_to" required placeholder=" "
-                                                autocomplete="email">
-                                            <i class="fa-solid fa-envelope field-icon"></i>
-                                            <label for="email">Email Address</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group floating-label-group">
-                                    <div class="input-with-icon">
-                                        <input type="tel" id="phone" name="phone_number" required placeholder=" "
-                                            autocomplete="tel" inputmode="numeric" pattern="[0-9]*" maxlength="10"
-                                            minlength="10">
-                                        <i class="fa-solid fa-phone field-icon"></i>
-                                        <label for="phone">Phone Number</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="step-actions">
-                                <button type="button" class="btn btn-primary btn-next btn-ripple">
-                                    Next Step <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 2: Academic & Program -->
-                        <div class="form-step" data-step="2">
-                            <div class="form-section">
-                                <h3 class="form-section-header"><i class="fa-solid fa-graduation-cap"></i> Academic &
-                                    Program</h3>
-                                <div class="form-group floating-label-group">
-                                    <div class="input-with-icon">
-                                        <select id="program" name="selected_program" required
-                                            onchange="this.setAttribute('value', this.value);">
-                                            <option value="" disabled selected></option>
-                                            <option value="mba_ft">MBA (Full Time) – 2 Years</option>
-                                            <option value="mba_le">MBA (Lateral Entry) – 1 Year</option>
-                                            <option value="phd_mgmt">Ph.D. in Management (Full/Part Time)</option>
-                                        </select>
-                                        <i class="fa-solid fa-book-open field-icon"></i>
-                                        <label for="program">Program of Interest</label>
-                                    </div>
-                                </div>
-                                <div class="form-group floating-label-group">
-                                    <div class="input-with-icon">
-                                        <input type="text" id="qualification" name="qualification" required
-                                            placeholder=" ">
-                                        <i class="fa-solid fa-award field-icon"></i>
-                                        <label for="qualification">Highest Qualification (e.g., 12th, Diploma)</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="step-actions">
-                                <button type="button" class="btn btn-prev">Back</button>
-                                <button type="button" class="btn btn-primary btn-next btn-ripple">
-                                    Next Step <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 3: Finalize -->
-                        <div class="form-step" data-step="3">
-                            <div class="form-section">
-                                <h3 class="form-section-header"><i class="fa-solid fa-message"></i> Additional
-                                    Information</h3>
-                                <div class="form-group floating-label-group">
-                                    <div class="input-with-icon">
-                                        <textarea id="message" name="message" rows="4" placeholder=" "></textarea>
-                                        <label for="message">Tell us about your interests (Optional)</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="step-actions">
-                                <button type="button" class="btn btn-prev">Back</button>
-                                <button type="submit" class="btn btn-primary btn-submit btn-ripple" id="submitBtn"
-                                    disabled>
-                                    <span class="btn-text">Submit Application <i
-                                            class="fa-solid fa-paper-plane"></i></span>
-                                    <div class="spinner"></div>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <!-- Success Message -->
-                    <div id="formSuccess" style="display: none;">
-                        <div class="form-success-wrapper">
-                            <div class="success-icon"><i class="fa-solid fa-check"></i></div>
-                            <h3>Application Submitted!</h3>
-                            <p>We have received your enquiry. Our admission cell will contact you shortly.</p>
-                            <button onclick="resetForm()" class="btn btn-primary">Submit Another</button>
-                        </div>
-                    </div>
+                    <a href="https://admissions.kanchiuniv.ac.in/" target="_blank" rel="noopener noreferrer" 
+                       class="btn btn-primary btn-large btn-ripple" 
+                       style="font-size: 1.5rem; padding: 1.25rem 3rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+                        Apply Now <i class="fa-solid fa-arrow-right-long" style="margin-left: 10px;"></i>
+                    </a>
                 </div>
 
                 <!-- Right Side Information Panel -->
@@ -908,13 +796,15 @@
                     </div>
                 </div>
                 <div class="fab-right">
-                    <a href="#apply" class="btn btn-primary btn-fab">Apply Now</a>
+                    <a href="https://admissions.kanchiuniv.ac.in/" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-primary btn-fab">Apply Now</a>
                 </div>
             </div>
 
             <!-- Mobile Layout (3-Button Layout) -->
             <div class="fab-mobile">
-                <a href="#apply" class="fab-mobile-btn fab-mobile-apply">
+                <a href="https://admissions.kanchiuniv.ac.in/" target="_blank" rel="noopener noreferrer"
+                    class="fab-mobile-btn fab-mobile-apply">
                     <span>Apply Now</span>
                 </a>
                 <a href="https://wa.me/919629001144" target="_blank" rel="noopener noreferrer"
